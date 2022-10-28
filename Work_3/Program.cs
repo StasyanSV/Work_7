@@ -14,7 +14,7 @@ double[,] array = GetArray (lines, columns, 0, 10);
 
 PrintGetArray(array);
 
-arithmeticСolumns(array);
+// arithmeticСolumns(array);
 
 PrintArithmeticСolumns (arithmeticСolumns(array));
 
