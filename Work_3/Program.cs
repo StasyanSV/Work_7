@@ -10,7 +10,7 @@ int lines = int.Parse(Console.ReadLine());
 Console.Write("Введите колличество столбцов: ");
 int columns = int.Parse(Console.ReadLine());
 
-int[,] array = GetArray (lines, columns, 0, 10);
+double[,] array = GetArray (lines, columns, 0, 10);
 
 PrintGetArray(array);
 
@@ -19,9 +19,9 @@ arithmeticСolumns(array);
 PrintArithmeticСolumns (arithmeticСolumns(array));
 
 
-int[,] GetArray(int n, int m, int minValue, int maxValue)
+double[,] GetArray(int n, int m, int minValue, int maxValue)
 {
-    int[,] result = new int[n, m];
+    double[,] result = new double[n, m];
 
     for (int i = 0; i < n; i++)
     {
@@ -34,7 +34,7 @@ int[,] GetArray(int n, int m, int minValue, int maxValue)
     return result;
 }
 
-void PrintGetArray (int[,] inArray)
+void PrintGetArray (double[,] inArray)
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
@@ -46,9 +46,9 @@ void PrintGetArray (int[,] inArray)
     }
 }
 
-int[] arithmeticСolumns (int[,] inArray)
+double[] arithmeticСolumns (double[,] inArray)
 {
-    int[] result = new int[inArray.GetLength(1)];
+    double[] result = new double[inArray.GetLength(1)];
 
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
@@ -59,10 +59,15 @@ int[] arithmeticСolumns (int[,] inArray)
         }
     }
 
+    for (int i = 0; i < result.Length; i++)
+    {
+        result[i] = Math.Round((result[i]/ inArray.GetLength(0)),2);
+    }
+
     return result;
 }
 
-void PrintArithmeticСolumns (int[] inArray)
+void PrintArithmeticСolumns (double[] inArray)
 {
     for (int i = 0; i < inArray.Length; i++)
     {
